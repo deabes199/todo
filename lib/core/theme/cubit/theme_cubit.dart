@@ -18,7 +18,7 @@ class ThemeCubit extends Cubit<ThemeState> {
   void getTheme() async {
     isDark = await getIt<CacheHelper>().getData(
       key: 'isDark',
-    );
+    )??false;
     emit(GetThemeState());
   }
 }

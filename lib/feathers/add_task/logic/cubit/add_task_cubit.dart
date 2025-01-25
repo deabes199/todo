@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_app/core/database/sqflite_helper.dart';
 import 'package:todo_app/core/di/dependancy_injection.dart';
+import 'package:todo_app/core/notifications/local_notification.dart';
 import 'package:todo_app/core/utils/app_colors.dart';
 import 'package:todo_app/feathers/home/data/model/task_model.dart';
 part 'add_task_state.dart';
@@ -19,6 +20,7 @@ class AddTaskCubit extends Cubit<AddTaskState> {
   String startTime = DateFormat('hh:mm a').format(DateTime.now());
   String endTime = DateFormat('hh:mm a').format(DateTime.now());
   int currntIndex = 0;
+  late TimeOfDay schudleTime;
   List<TaskModel> taskList = [];
   void getDateTime(context) async {
     try {
@@ -54,11 +56,14 @@ class AddTaskCubit extends Cubit<AddTaskState> {
           initialTime: TimeOfDay.fromDateTime(DateTime.now()));
       if (pickedStartTime != null) {
         startTime = pickedStartTime.format(context);
+        schudleTime = pickedStartTime;
         emit(GetStartTimeSuccessState());
       } else {
         emit(GetStartTimeErrorState(error: 'null'));
       }
     } catch (e) {
+      schudleTime =
+          TimeOfDay(hour: currentDate.hour, minute: currentDate.minute);
       emit(GetStartTimeErrorState(error: e.toString()));
     }
   }
@@ -109,6 +114,7 @@ class AddTaskCubit extends Cubit<AddTaskState> {
     emit(AddTaskLoadingState());
     try {
       TaskModel addTask = TaskModel(
+       
         title: titleController.text,
         body: noteController.text,
         startTime: startTime,
@@ -118,6 +124,11 @@ class AddTaskCubit extends Cubit<AddTaskState> {
         date: DateFormat.yMd().format(currentDate),
       );
       await getIt<SqfliteHelper>().insertIntoDb(addTask);
+      LocalNotification.taskNotifications(
+        model: addTask,
+        currntDate: currentDate,
+        time: schudleTime,
+      );
 
       titleController.clear();
       noteController.clear();

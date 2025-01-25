@@ -5,6 +5,8 @@ import 'package:todo_app/bloc_observer.dart';
 import 'package:todo_app/core/database/shared_pref.dart';
 import 'package:todo_app/core/database/sqflite_helper.dart';
 import 'package:todo_app/core/di/dependancy_injection.dart';
+import 'package:todo_app/core/notifications/local_notification.dart';
+import 'package:todo_app/core/notifications/work_manager.dart';
 import 'package:todo_app/core/routes/app_router.dart';
 import 'package:todo_app/core/routes/routes.dart';
 import 'package:todo_app/core/theme/cubit/theme_cubit.dart';
@@ -16,6 +18,8 @@ void main() async {
   await getIt<CacheHelper>().init();
   getIt<SqfliteHelper>().initDb();
   Bloc.observer = MyBlocObserver();
+
+  await Future.wait([LocalNotification.init(), WorkManagerServices().init()]);
   runApp(const MyApp());
 }
 
