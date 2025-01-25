@@ -16,9 +16,15 @@ class TaskComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  
+    var addcubit = context.read<AddTaskCubit>();
     return InkWell(
       onTap: () {
-        showBottomSheetTask(context, taskModel);
+        showBottomSheetTask(
+          context,
+          taskModel,
+          addcubit
+        );
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 24),
@@ -26,7 +32,7 @@ class TaskComponent extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           color:
-              BlocProvider.of<AddTaskCubit>(context).getColor(taskModel.color),
+              addcubit.getColor(taskModel.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(

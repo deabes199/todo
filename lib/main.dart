@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:todo_app/bloc_observer.dart';
 import 'package:todo_app/core/database/shared_pref.dart';
 import 'package:todo_app/core/database/sqflite_helper.dart';
-import 'package:todo_app/core/di/dependancy_injextion.dart';
+import 'package:todo_app/core/di/dependancy_injection.dart';
 import 'package:todo_app/core/routes/app_router.dart';
 import 'package:todo_app/core/routes/routes.dart';
 import 'package:todo_app/core/theme/cubit/theme_cubit.dart';
@@ -15,6 +16,7 @@ void main() async {
   diSetUp();
   await getIt<CacheHelper>().init();
   getIt<SqfliteHelper>().initDb();
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
@@ -28,15 +30,8 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => AddTaskCubit()..getTask(),
-            ),
-            BlocProvider(
-              create: (context) => ThemeCubit()..getTheme(),
-            ),
-          ],
+        return BlocProvider(
+          create: (context) => ThemeCubit()..getTheme(),
           child: BlocBuilder<ThemeCubit, ThemeState>(
             builder: (context, state) {
               return MaterialApp(

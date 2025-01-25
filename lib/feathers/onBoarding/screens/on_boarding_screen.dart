@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/core/database/shared_pref.dart';
-import 'package:todo_app/core/di/dependancy_injextion.dart';
+import 'package:todo_app/core/di/dependancy_injection.dart';
 import 'package:todo_app/core/routes/routes.dart';
 import 'package:todo_app/core/utils/app_colors.dart';
 import 'package:todo_app/core/utils/app_string.dart';

@@ -49,7 +49,7 @@ ThemeData getDarkThemeMode() {
 
 ThemeData getThemeMode() {
   return ThemeData(
-     brightness: Brightness.light,
+    brightness: Brightness.light,
     scaffoldBackgroundColor: AppColors.white,
     primaryColor: AppColors.primary,
     appBarTheme: const AppBarTheme(

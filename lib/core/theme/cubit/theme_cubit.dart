@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:todo_app/core/database/shared_pref.dart';
-import 'package:todo_app/core/di/dependancy_injextion.dart';
+import 'package:todo_app/core/di/dependancy_injection.dart';
 
 part 'theme_state.dart';
 

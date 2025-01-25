@@ -26,10 +26,7 @@ class _ChangeColorsState extends State<ChangeColors> {
             children: [
               Text(
                 AppStrings.color,
-                style: Theme.of(context)
-                    .textTheme
-                    .displaySmall!
-                    .copyWith(color: AppColors.white),
+                style: Theme.of(context).textTheme.displaySmall!,
               ),
               verticalSpace(10),
               Expanded(
