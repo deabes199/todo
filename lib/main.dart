@@ -9,7 +9,6 @@ import 'package:todo_app/core/routes/app_router.dart';
 import 'package:todo_app/core/routes/routes.dart';
 import 'package:todo_app/core/theme/cubit/theme_cubit.dart';
 import 'package:todo_app/core/theme/get_theme_mode.dart';
-import 'package:todo_app/feathers/add_task/logic/cubit/add_task_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

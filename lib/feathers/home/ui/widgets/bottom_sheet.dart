@@ -34,7 +34,8 @@ showBottomSheetTask(BuildContext context, TaskModel model, AddTaskCubit cubit) {
                             buttonText: AppStrings.taskCompleted,
                             onpressed: () {
                               cubit.updateTask(model.id!);
-                              Navigator.popAndPushNamed(context, Routes.homeScreen);
+                                Navigator.pop(context);
+                             
                             },
                           ),
                     verticalSpace(24),
@@ -43,7 +44,7 @@ showBottomSheetTask(BuildContext context, TaskModel model, AddTaskCubit cubit) {
                       buttonText: AppStrings.deleteTask,
                       onpressed: () {
                         cubit.deleteTask(model.id!);
-                        Navigator.pushReplacementNamed(context, Routes.homeScreen);
+                        Navigator.pop(context);
                       },
                     ),
                     verticalSpace(24),

@@ -150,7 +150,7 @@ class AddTaskCubit extends Cubit<AddTaskState> {
     emit(UpdateTaskLoadingState());
     try {
       await getIt<SqfliteHelper>().updatedDb(id);
-      emit(UpdateTaskSuccessState());
+      emit(UpdateTaskSuccessState(id: id));
       getTask();
     } catch (e) {
       emit(UpdateTaskErrorState(error: e.toString()));
@@ -160,7 +160,7 @@ class AddTaskCubit extends Cubit<AddTaskState> {
   void deleteTask(int id) async {
     try {
       await getIt<SqfliteHelper>().deleteFromDb(id);
-      emit(DeleteTaskSuccessState());
+      emit(DeleteTaskSuccessState(id: id));
       getTask();
     } catch (e) {
       emit(DeleteTaskErrorState(error: e.toString()));

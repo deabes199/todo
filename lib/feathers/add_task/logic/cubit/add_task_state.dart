@@ -62,7 +62,11 @@ final class GetTaskErrorState extends AddTaskState {
 /// update tasks
 final class UpdateTaskLoadingState extends AddTaskState {}
 
-final class UpdateTaskSuccessState extends AddTaskState {}
+final class UpdateTaskSuccessState extends AddTaskState {
+  final int id;
+
+  UpdateTaskSuccessState({required this.id});
+}
 
 final class UpdateTaskErrorState extends AddTaskState {
     final String error;
@@ -72,7 +76,11 @@ final class UpdateTaskErrorState extends AddTaskState {
 
 /// delete task
 
-final class DeleteTaskSuccessState extends AddTaskState {}
+final class DeleteTaskSuccessState extends AddTaskState {
+  final int id;
+
+  DeleteTaskSuccessState({required this.id});
+}
 
 final class DeleteTaskErrorState extends AddTaskState {
      final String error;
