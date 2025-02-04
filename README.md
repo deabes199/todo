@@ -1,16 +1,72 @@
-# todo_app
+# Todo_app
 
-A new Flutter project.
+A simple Flutter Todo app that allows users to manage their tasks effectively. This app includes features like displaying tasks, adding new tasks, and notifications for upcoming tasks.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+- 🎨 [Architecture Design](#architecture-design)
 
-A few resources to get you started if this is your first Flutter project:
+  
+lib/
+│── main.dart      
+│── core/
+│   ├── database/
+│   │   ├── shared pref
+│   │   ├── sqflite 
+│   ├── di/
+│       ├── dependancy injection
+│   ├── notification/
+│       ├── local notification
+│   ├── routing/
+│       ├── appRouter
+│       ├── routes
+│   ├── theme/
+│       ├── theme cubit
+│   ├── shared componant
+│   ├── utils/
+│   │   ├── constants
+│── features/
+│   ├── ui/
+│   │   ├── screens
+│   │   ├── widgest
+│   ├── data/
+│   │   ├── models    
+│   │   ├── repo
+│   ├── logic/
+│   │   ├── cubit
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Features
+
+Every feature mainly contains of 3 basic layers `data` , `logic` and `ui`
+
+- **Splash screen** before loading the main app.
+- **Onboarding screen** for first-time users.
+- **Home screen** displaying a list of task .
+- **Add Task** Add task with title and subtitle and date .
+- **BottomSheet** delete task or edit to complete.
+
+
+
+## Tools
+
+- **flutter_bloc**: For state management using Cubit.
+- **sqflte**: Use to Store data .
+- **shared_preferences**: For simple local storage
+- **date_picker_timeline**:use pick the date
+- **flutter local notification**
+
+## Screens
+- **HomeScreen**
+
+
+
+
+- **Add task**
+
+
+
+- **BottomSheet**
+
+
+
+
