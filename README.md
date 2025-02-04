@@ -8,8 +8,6 @@ A simple Flutter Todo app that allows users to manage their tasks effectively. T
   <img src="https://github.com/user-attachments/assets/d4dae5a6-f120-4f0e-942b-a4c6f2a2b2f8" width="300" />
 
 
-![Screenshot_1738709207](https://github.com/user-attachments/assets/4881dcee-9085-44c2-b0db-e37c67269eab)
-
 
 ## Features
 
