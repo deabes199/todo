@@ -31,15 +31,8 @@ Every feature mainly contains of 3 basic layers `data` , `logic` and `ui`
 
 # Screens
 <img src="https://github.com/user-attachments/assets/19192bbe-a9c1-4ea4-ba5f-67363174e503" width="200" />
-
-  
 <img src="https://github.com/user-attachments/assets/d02e282a-1697-4bf8-ad82-572dbe010602" width="200" />
--**HomeScreen**
-
 <img src="https://github.com/user-attachments/assets/0f89efc8-c091-4453-aca0-af93df94b48c" width="200" />
-
-
-
 <img src="https://github.com/user-attachments/assets/4881dcee-9085-44c2-b0db-e37c67269eab" width="200" />
 
 
